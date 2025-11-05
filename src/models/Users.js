@@ -28,6 +28,14 @@ const Users = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true
     },
+    resetCode: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    passwordChangeAt: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     estado: {
       type: DataTypes.ENUM('activo', 'inactivo', 'pendiente'),
       defaultValue: 'pendiente'
@@ -39,5 +47,19 @@ const Users = sequelize.define(
     updatedAt: 'fecha_actualizacion'
   }
 );
+
+Users.prototype.toJSON = function () {
+  const values = Object.assign({}, this.get());
+  delete values.password_hash;
+  delete values.createdAt;
+  delete values.resetCode;
+  delete values.passwordChangeAt;  
+  return values;
+};
+
+Users.beforeCreate(async (user) => {
+  const hashedPassword = await bcrypt.hash(user.password, 10);
+  user.password = hashedPassword;
+});
 
 module.exports = Users;

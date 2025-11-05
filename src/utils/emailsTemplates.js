@@ -12,50 +12,24 @@ const sendTokenToRegistrationEmail = (token) => {
     `;
 };
 
-const generateWelcomeEmail = (firstName) => {
+const generateWelcomeEmail = (nombre) => {
   return `
-    <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 0 auto; color: #333;">
-      <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-        <h1 style="color: white; margin: 0; font-size: 28px;">¡Bienvenido a Cool Invitation!</h1>
-      </div>
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #333;">¡Bienvenido a Distribuidor de Abarrotes!</h2>
+      <p>Hola <strong>${nombre}</strong>,</p>
+      <p>Tu registro se ha completado exitosamente. Ahora puedes acceder a todas las funcionalidades de nuestra plataforma.</p>
       
-      <div style="padding: 30px; background: #f9f9f9; border-radius: 0 0 10px 10px;">
-        <p>Hola <strong>${firstName}</strong>,</p>
-        
-        <p>¡Estamos emocionados de tenerte en nuestra comunidad! Ahora estás a pocos pasos de crear invitaciones digitales increíbles para tus eventos.</p>
-        
-        <div style="background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea;">
-          <h3 style="color: #667eea; margin-top: 0;">Sigue estos pasos para comenzar:</h3>
-          <ol style="line-height: 2;">
-            <li><strong>Inicia sesión</strong> en tu cuenta con tus credenciales</li>
-            <li><strong>Registra un nuevo evento</strong> (bodas, cumpleaños, eventos corporativos, etc.)</li>
-            <li><strong>Nos contactamos contigo</strong> para diseñar tu invitación digital personalizada</li>
-            <li><strong>Registra a tus invitados</strong> en el sistema</li>
-            <li><strong>Envía tus invitaciones cool</strong> por WhatsApp o email</li>
-          </ol>
-        </div>
-
-        <p>Con Cool Invitation podrás:</p>
-        <ul style="line-height: 2;">
-          <li>✅ Confirmaciones de asistencia en tiempo real</li>
-          <li>✅ Ubicación del evento con enlaces a Maps</li>
-          <li>✅ Cuenta regresiva automática</li>
-          <li>✅ Notificaciones y recordatorios</li>
-          <li>✅ Calendarización automática</li>
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <h3 style="color: #28a745;">¿Qué puedes hacer ahora?</h3>
+        <ul>
+          <li>Gestionar tus comercios</li>
+          <li>Asignar códigos a tus tiendas</li>
+          <li>Monitorear tu presencia en línea</li>
         </ul>
-
-        <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.</p>
-        
-        <p>¡Prepárate para impresionar a tus invitados!</p>
-        
-        <div style="text-align: center; margin-top: 30px;">
-          <a href="#" style="background: #667eea; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; display: inline-block;">Comenzar Ahora</a>
-        </div>
       </div>
       
-      <div style="text-align: center; padding: 20px; color: #777; font-size: 12px;">
-        <p>© 2024 Cool Invitation. Todos los derechos reservados.</p>
-      </div>
+      <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+      <p style="color: #666; font-size: 14px;">El equipo de Distribuidor de Abarrotes</p>
     </div>
   `;
 };
