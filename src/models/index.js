@@ -1,16 +1,15 @@
-const Roles = require('./Roles');
-const Users = require('./Users');
-const UserSession = require('./UserSession');
-
+const User = require('./user');
+const Shops = require('./shop');
+const ShopCode = require('./ShopCode');
 
 const initModels = () => {
-    // USER HASONE RELATIONSHIP WITH USERSESSION
-    Users.hasOne(UserSession);
-    UserSession.belongsTo(Users);
+    // USER 1:N SHOP (Un usuario puede tener múltiples comercios)
+    User.hasMany(Shops, { foreignKey: 'user_id' });
+    Shops.belongsTo(User, { foreignKey: 'user_id' });
 
-    // USER BELONGSTO RELATIONSHIP WITH ROLES
-    Roles.hasMany(Users);
-    Users.belongsTo(Roles);
+    // SHOP 1:1 SHOPCODE (Un comercio tiene un código asignado)
+    Shops.hasOne(ShopCode, { foreignKey: 'comercio_id' });
+    ShopCode.belongsTo(Shops, { foreignKey: 'comercio_id' });
 };
 
 module.exports = initModels;
